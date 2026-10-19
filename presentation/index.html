@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101511">
+  <title>ALPENDRE — The Digital Experience / Keynote</title>
+  <meta name="description" content="Palco cinematográfico modular para demonstrar as interações reais do Alpendre.">
+  <link rel="stylesheet" href="./style.css">
+  <script src="../dist/assets/gsap.min.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="experience" id="experience">
+    <header class="topbar">
+      <a class="identity" href="../dist/index.html" target="_blank" rel="noopener" aria-label="Abrir o site original Alpendre">
+        <svg viewBox="0 0 50 40" aria-hidden="true"><path d="M3 37V3h44v34M25 3v34"/></svg>
+        <span>alpendre</span>
+      </a>
+      <div class="top-middle"><span class="tiny-dot"></span> THE DIGITAL EXPERIENCE <span class="thin-slash">/</span> DIRECTOR'S CUT</div>
+      <div class="top-right"><span class="tiny-dot live-dot"></span><span id="liveStatus">PREPARANDO EXPERIÊNCIA</span></div>
+    </header>
+
+    <main class="stage" id="stage" aria-label="Prévia da apresentação de lançamento">
+      <div class="stage-grid" aria-hidden="true"></div>
+      <div class="stage-ambient ambient-a" aria-hidden="true"></div>
+      <div class="stage-ambient ambient-b" aria-hidden="true"></div>
+      <div class="horizon-line" aria-hidden="true"></div>
+
+      <div class="empty-slot" id="emptySlot" aria-hidden="true">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="slot-ruler">ALPENDRE <span>EXPERIENCE / 01</span></div>
+        <div class="slot-ghost"><span></span><span></span><span></span></div>
+        <div class="slot-line"><div id="slotFill"></div></div>
+        <div class="slot-counter" id="slotCounter">A INTERFACE GANHA ESPAÇO.</div>
+      </div>
+
+      <div class="site-plane" id="sitePlane" aria-label="Website real incorporado à apresentação">
+        <div class="plane-topbar"><span class="plane-signal"><i></i><i></i><i></i></span><span>ALPENDRE / LIVE INTERFACE</span><span>1920 — EXPERIENCE</span></div>
+        <iframe id="siteFrame" src="../dist/index.html" title="Website original Alpendre" tabindex="-1" loading="eager"></iframe>
+        <div class="demo-cursor" id="demoCursor" aria-hidden="true">
+          <svg width="29" height="34" viewBox="0 0 29 34"><path d="M3 2L3 27L10 21L15 32L20 29L14 19L23 19Z" fill="#f4efdf" stroke="#182019" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span class="cursor-pulse"></span>
+        </div>
+        <div class="plane-grain" aria-hidden="true"></div>
+      </div>
+
+      <section class="avatar-slot" id="avatarSlot" aria-label="Slot para apresentador HeyGem">
+        <div class="avatar-chrome"><span>HOST / HEYGEM</span><span id="avatarNumber">TAKE 01</span></div>
+        <video id="avatarVideo" playsinline preload="metadata"></video>
+        <div class="avatar-empty" id="avatarEmpty">
+          <div class="avatar-geometry" aria-hidden="true"><div class="geometry-ring"></div><div class="geometry-ring r2"></div><div class="geometry-ring r3"></div><span>H</span></div>
+          <p>ESPAÇO DE PRESENÇA</p><span>Insira um take do HeyGem para substituir este quadro.</span>
+        </div>
+        <label class="avatar-upload" id="avatarUploadLabel">+ INSERIR TAKE HEYGEM <input type="file" id="avatarUpload" accept="video/*" hidden></label>
+      </section>
+
+      <section class="caption" id="caption" data-style="curtain" aria-live="polite">
+        <div class="caption-head"><span class="caption-index" id="captionIndex">00 / 08</span><span class="caption-rule"></span><span class="caption-category" id="captionCategory">INTRODUÇÃO</span></div>
+        <h1 class="caption-title" id="captionTitle">O espaço antes da forma.</h1>
+        <p class="caption-sub" id="captionSub">Quando a experiência começa pelo essencial.</p>
+        <span class="caption-micro" id="captionMicro">A / DIGITAL EXPERIENCE</span>
+      </section>
+      <div class="detail-tag" id="detailTag"><span class="detail-plus">+</span><span id="detailText">INTERAÇÕES REAIS. DIREÇÃO CINEMATOGRÁFICA.</span></div>
+      <div class="stage-coordinates">ALP / 2026 <span>DESIGN IS IN THE DETAILS</span></div>
+      <div class="stage-number" id="stageNumber">00</div>
+    </main>
+
+    <footer class="controls">
+      <div class="transport">
+        <button id="playButton" class="play-button" type="button" aria-label="Reproduzir apresentação">▶</button>
+        <button id="prevButton" type="button" aria-label="Cena anterior">←</button>
+        <button id="nextButton" type="button" aria-label="Próxima cena">→</button>
+        <span class="timecode" id="timecode">00:00 / 02:00</span>
+      </div>
+      <div class="timeline-wrapper">
+        <input type="range" id="scrubber" aria-label="Posição da apresentação" min="0" max="120" step="0.05" value="0">
+        <div class="timeline-chapters" id="timelineChapters" aria-label="Navegar pelos capítulos"></div>
+      </div>
+      <div class="control-right">
+        <span id="sceneName">01 / O VAZIO</span>
+        <button id="guideButton" type="button" aria-pressed="true">GUIAS: ON</button>
+        <button id="fullscreenButton" type="button" aria-label="Tela cheia">⛶</button>
+      </div>
+    </footer>
+  </div>
+  <div class="notice" id="notice" role="status" aria-live="polite"></div>
+</body>
+</html>
